@@ -1,0 +1,58 @@
+{% extends "exercise_gamification/base.html" %}
+{% block content %}
+
+<div class="container text-dark mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <div class="mb-3">
+        <h1>Submit Cardio Workout</h1>
+      </div>
+
+      <form action="{% url 'exercise_gamification:submit_cardio' %}"
+        method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="workout_name"
+            class="form-label">Workout Name</label><br>
+          <input type="text"
+            name="workout_name"
+            placeholder="Enter workout name"
+            class="form-control form-control-lg"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="duration"
+            class="form-label">Duration</label><br>
+          <input type="number"
+            name="duration"
+            placeholder="Duration in minutes"
+            class="form-control form-control-lg"
+            min="0"
+            step=".01"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="distance"
+            class="form-label">Distance</label><br>
+          <input type="number"
+            name="distance"
+            placeholder="Distance in miles"
+            class="form-control form-control-lg"
+            min="0"
+            step=".01"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="notes"
+            class="form-label">Additional Notes</label><br>
+          <textarea name="notes"
+            class="form-control form-control-lg"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

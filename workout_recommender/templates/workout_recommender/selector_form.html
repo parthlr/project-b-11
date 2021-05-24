@@ -1,0 +1,68 @@
+{% extends './base.html' %}
+
+{% block title %} Select Muscle Group {% endblock %}
+
+{% block more-content %}
+<div class="container text-dark mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <h2>Make Selection</h2>
+      <form action="{% url 'workout_recommender:redirect_form' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+              <label class="form-label">Select Muscle Group</label><br>
+              <input type="radio"
+                  id="Any/All"
+                  name="muscle-group"
+                  value="Any/All"
+                  required>
+              <label for="Any/All">Any/All</label><br>
+              <input type="radio"
+                  id="Abs"
+                  name="muscle-group"
+                  value="Abs"
+                  required>
+              <label for="Abs">Abs</label><br>
+              <input type="radio"
+                  id="Arms"
+                  name="muscle-group"
+                  value="Arms"
+                  required>
+              <label for="Arms">Arms</label><br>
+              <input type="radio"
+                  id="Back"
+                  name="muscle-group"
+                  value="Back"
+                  required>
+              <label for="Back">Back</label><br>
+              <input type="radio"
+                  id="Calves"
+                  name="muscle-group"
+                  value="Calves"
+                  required>
+              <label for="Calves">Calves</label><br>
+              <input type="radio"
+                  id="Chest"
+                  name="muscle-group"
+                  value="Chest"
+                  required>
+              <label for="Chest">Chest</label><br>
+              <input type="radio"
+                  id="Legs"
+                  name="muscle-group"
+                  value="Legs"
+                  required>
+              <label for="Legs">Legs</label><br>
+              <input type="radio"
+                  id="Shoulders"
+                  name="muscle-group"
+                  value="Shoulders"
+                  required>
+              <label for="Shoulders">Shoulders</label><br>
+            </div>
+          <button class="btn btn-primary" type="Submit" name="submit">Select</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

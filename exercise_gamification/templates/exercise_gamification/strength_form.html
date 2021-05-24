@@ -1,0 +1,61 @@
+{% extends "exercise_gamification/base.html" %}
+{% block content %}
+
+<div class="container text-dark mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <div class="mb-3">
+        <h1>Submit Strength Workout</h1>
+      </div>
+
+      <form action="{% url 'exercise_gamification:submit_strength' %}"
+        method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="workout_name"
+            class="form-label">Workout Name</label><br>
+          <input type="text"
+            name="workout_name"
+            placeholder="Enter workout name"
+            class="form-control form-control-lg"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="bodyweight"
+            class="form-label">Bodyweight <input type="checkbox" name="bodyweight" style="vertical-align:middle"></label>
+        </div>
+        <div class="form-group">
+          <label for="repetitions"
+            class="form-label">Repititions</label><br>
+          <input type="number"
+            name="repetitions"
+            placeholder="Number of Repititions"
+            class="form-control form-control-lg"
+            min="0"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="weight"
+            class="form-label">Weight</label><br>
+          <input type="number"
+            name="weight"
+            placeholder="Weight in lbs"
+            class="form-control form-control-lg"
+            min="0"
+            step=".01"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="notes"
+            class="form-label">Additional Notes</label><br>
+          <textarea name="notes"
+            class="form-control form-control-lg"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

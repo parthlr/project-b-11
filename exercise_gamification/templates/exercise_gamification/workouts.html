@@ -1,0 +1,113 @@
+{% extends "exercise_gamification/base.html" %}
+
+<!--
+Bootstrap Cards
+Source: https://getbootstrap.com/docs/4.0/components/card/
+-->
+
+{% block content %}
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Workouts</title>
+  </head>
+
+  <body>
+    <div class="mb-5">
+    </div>
+    <div class="container text-dark mt-5">
+      <div class="row justify-content-md-center">
+
+        <div class="col-md-7">
+          <div class="flex-container">
+            <h1>Your Workouts</h1>
+            <div>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newWorkoutModal">New</button>
+            </div>
+          </div><br>
+          {% for workout in workouts reversed %}
+          <div class="form-group">
+            <div class="flex-container">
+              <div>
+                <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#workout{{ workout.id }}" aria-expanded="false" aria-controls="workout{{ workout.id }}">View</button>
+                <h5>{{ workout.name }}</h5>
+              </div>
+              <button type="button" class="btn" disabled>{{ workout.date }}</button>
+            </div><br>
+            <div class="collapse" id="workout{{ workout.id }}">
+              <div class="card card-body">
+                {% if workout.cardio_workout %}
+                  <p>Duration: {{ workout.cardio_workout.duration }} minutes</p>
+                  <p>Distance: {{ workout.cardio_workout.distance }} miles</p>
+                {% elif workout.strength_workout %}
+                  <p>Repititions: {{ workout.strength_workout.repetitions }}</p>
+                  {% if not workout.strength_workout.bodyweight %}
+                    <p>Weight: {{ workout.strength_workout.weight }} lbs</p>
+                  {% else %}
+                  <p>Weight: Bodyweight</p>
+                  {% endif %}
+                {% elif workout.other_workout %}
+                  <p>Description: {{ workout.other_workout.description }}</p>
+                {% endif %}
+                <p>Additional Notes: {{ workout.notes }}</p>
+              </div>
+            </div><br>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="col ml-5">
+          <h4>Top Friends</h4><br>
+          {% for friend in top_friends %}
+          <div class="card bg-light mb-5" style="max-width: 18rem;">
+            <div class="card-header"><a href="{% url 'exercise_gamification:user_profile' friend.username %}">{{ friend.name }} ({{ friend.username }})</a></div>
+            <div class="card-body">
+              <h5 class="card-title">Level: {{ friend.level }}</h5>
+              <p class="card-text">XP: {{ friend.xp }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="newWorkoutModal" tabindex="-1" role="dialog" aria-labelledby="newWorkoutModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newWorkoutModalLongTitle">Choose Workout Type</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="{% url 'exercise_gamification:redirect_workout' %}" method="post">
+            {% csrf_token %}
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="radio" id="cardio" name="workout_type" value="cardio" required>
+                <label for="cardio">Cardio</label><br>
+                <input type="radio" id="strength" name="workout_type" value="strength" required>
+                <label for="strength">Strength</label><br>
+                <input type="radio" id="other_workout" name="workout_type" value="other" required>
+                <label for="other_workout">Other</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+{% endblock content%}

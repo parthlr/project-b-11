@@ -1,0 +1,15 @@
+/*
+Source: https://stackoverflow.com/questions/40091515/how-to-have-two-items-on-opposite-sides-on-the-same-line
+Alligns elements on the same line
+*/
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container h5 {
+  display: inline;
+  vertical-align: middle;
+  padding-left: 15px;
+}
