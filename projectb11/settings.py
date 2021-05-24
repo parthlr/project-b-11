@@ -30,13 +30,13 @@ SECRET_KEY = ')yi7@zuk-6)%x4s9504j0xn+#6yeqxbg2*1aofv!+hfaj3707v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['project-b-11-cs3240.herokuapp.com/', 'https://project-b-11-cs3240.herokuapp.com/']
+ALLOWED_HOSTS = ['parth-project-b11.herokuapp.com/', 'https://parth-project-b11.herokuapp.com/']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_HOST = 'https://project-b-11-cs3240.herokuapp.com/'
+SECURE_SSL_HOST = 'https://parth-project-b11.herokuapp.com/'
 SECURE_SSL_REDIRECT = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
