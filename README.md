@@ -1,8 +1,7 @@
 # CS3240: Project B-11
 ## Exercise Gamficiation
 
-Herokuapp Link: https://project-b-11-cs3240.herokuapp.com/
-GitHub Repo Link: https://github.com/uva-cs3240-s21/project-b-11
+Herokuapp Link: https://parth-project-b11.herokuapp.com/
 
 Team Members: Parth Raut, Robert Owens, Teddy Oline, Arjun Kumar, Mark Chitre
 
@@ -35,4 +34,4 @@ Team Members: Parth Raut, Robert Owens, Teddy Oline, Arjun Kumar, Mark Chitre
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [website link]: <https://project-b-11-cs3240.herokuapp.com/>
+   [website link]: <https://parth-project-b11.herokuapp.com/>
