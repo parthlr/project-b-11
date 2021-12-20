@@ -1,7 +1,7 @@
 # CS3240: Project B-11
 ## Exercise Gamficiation
 
-Herokuapp Link: https://parth-project-b11.herokuapp.com/
+Herokuapp Link: https://project-b-11-cs3240.herokuapp.com/
 
 # Features
 - Create an account (by signing into Google)
@@ -32,4 +32,4 @@ Herokuapp Link: https://parth-project-b11.herokuapp.com/
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [website link]: <https://parth-project-b11.herokuapp.com/>
+   [website link]: <https://project-b-11-cs3240.herokuapp.com/>
