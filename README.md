@@ -3,8 +3,6 @@
 
 Herokuapp Link: https://parth-project-b11.herokuapp.com/
 
-Team Members: Parth Raut, Robert Owens, Teddy Oline, Arjun Kumar, Mark Chitre
-
 # Features
 - Create an account (by signing into Google)
 - Submit workouts you have completed and view them
